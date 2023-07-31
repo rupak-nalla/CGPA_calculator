@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+
+
+<html>
+  <head>
+    <title>
+      CGPA Calculator
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+      aside {
+        padding-left: 15px;
+        margin-left: 5cm;
+        margin-right: 2cm;
+        margin-top: 2cm;
+        margin-bottom: 2cm;
+        background-color: rgb(255, 255, 255);
+      }
+      .mask{
+        background-color: rgba(255, 255, 255, 0.84);
+      }
+      </style>
+  </head>
+  <body>
+    <aside>
+      <div>
+        <div id="mask">
+            <div>
+              <h3>CGPA Calculator</h3>
+          <div class="row row-cols-lg-auto g-3 align-items-center" id="inlineFormSelectPref">
+          <form class="form-center" action="/" method="POST" id="SEM">
+              <label class="col-sm-2 col-form-label">Choose semester </label>
+              <select class="form-select" id="inlineFormSelectPref" name="sem">
+                {%if(sem_value==1)%}
+                <option selected value=1>I year I semester</option>
+                {%else%}
+                <option  value=1>I year I semester</option>
+                {%endif%}
+        
+                {%if(sem_value==2)%}
+                <option selected value=2>I year II semester</option>
+                {%else%}
+                <option value=2>I year II semester</option>
+                {%endif%}
+        
+                {%if(sem_value==3)%}
+                <option selected value=3>II year I semester</option>
+                {%else%}
+                <option value=3>II year I semester</option>
+                {%endif%}
+        
+                {%if(sem_value==4)%}
+                <option selected value=4>II year II semester</option>
+                {%else%}
+                <option value=4>II year II semester</option>
+                {%endif%}
+        
+                {%if(sem_value==5)%}
+                <option selected value=5>III year I semester</option>
+                {%else%}
+                <option value=5>III year I semester</option>
+                {%endif%}
+        
+                {%if(sem_value==6)%}
+                <option selected  value=6>III year II semester</option>
+                {%else%}
+                <option value=6>III year II semester</option>
+                {%endif%}
+        
+                {%if(sem_value==7)%}
+                <option selected value=7>IV year I semester</option>
+                {%else%}
+                <option value=7>IV year I semester</option>
+                {%endif%}
+                {%if(sem_value==8)%}
+                <option selected value=8>IV year II semester</option>
+                {%else%}
+                <option  value=8>IV year II semester</option>
+                {%endif%}
+              </select>
+              
+              <button  class="btn btn-primary" type="submit">
+                  Submit
+              </button>
+          </div>
+          </form>
+          {%if (selecteds!=0)%}
+          <form class="col-sm-2 col-form-label" action="/calculate/{{selecteds}}" method="POST" id="SEM">
+              <div class="row mb-3">
+                {%for s in range(selecteds)%}
+                  <label class="col-form-label">SGPA for {{ s+1 }} semester</label>
+                  <div>
+                      <input class="form-control" type=number step=0.01  max="10.00" name="field{{s}}" required>
+                  </div>
+                {%endfor%}
+          
+                <button  class="btn btn-primary" type="submit">
+                  Submit
+              </button>
+              {%else%}
+              <button class="btn btn-primary " type="submit">
+                  Submit
+              </button>
+              
+          </div>
+          </form>
+          {%endif%}
+            </div>
+        </div>
+        
+      </div>  
+    </aside>
+    
+</body>
+</html>
