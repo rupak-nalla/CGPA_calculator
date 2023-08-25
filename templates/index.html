@@ -17,15 +17,15 @@
         margin-bottom: 2cm;
         background-color: rgb(255, 255, 255);
       }
-      .mask{
-        background-color: rgb(170, 170, 170);
-      }
+      
+
       </style>
   </head>
   <body>
     <aside>
       <h3>CGPA Calculator</h3>
-      <div class="row row-cols-lg-auto g-3 align-items-center">
+      <div class="row row-cols-lg-auto g-3 align-items-center" id="parent">
+      <div id ="child">
       <form  action="/" method="POST" id="SEM">
         <label class="col-sm-2 col-form-label">Choose semester</label>
         <select class="form-select" name="sem">
@@ -44,6 +44,7 @@
         </button>
         {%endif%}
       </form>
+      </div>
     </div>
   </aside>
     
